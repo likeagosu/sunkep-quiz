@@ -21,6 +21,7 @@ fn app() -> Html {
     let current_idx = use_state(|| 0);
     let score = use_state(|| 0);
     let message = use_state(|| "".to_string());
+    let is_processing = use_state(|| false);
 
     // 2. 퀴즈 데이터 정의 (html! 매크로 밖에서 수행)
     let quiz_data = vec![
@@ -83,9 +84,13 @@ fn app() -> Html {
                                                     let c_idx = current_idx.clone();
                                                     let s = score.clone();
                                                     let msg = message.clone();
+                                                    let processing = is_processing.clone();
                                                     let correct_answer = item.answer_idx;
 
                                                     let on_click = Callback::from(move |_| {
+                                                        if *processing {return;}
+
+                                                        processing.set(true);
                                                         if correct_answer == i {
                                                             s.set(*s + 10);
                                                             msg.set("정답입니다! +10".to_string());
@@ -95,14 +100,16 @@ fn app() -> Html {
 
                                                         let m_handle = msg.clone();
                                                         let c_handle = c_idx.clone();
+                                                        let p_handle = processing.clone();
                                                         Timeout::new(2000, move || {
                                                             m_handle.set("".to_string());
                                                             c_handle.set(*c_handle + 1);
+                                                            p_handle.set(false);
                                                         }).forget();
                                                     });
 
                                                     html! {
-                                                        <button onclick={on_click} style="padding: 10px; cursor: pointer; background: #3e4451; color: white; border: 1px solid #5c6370;">
+                                                        <button onclick={on_click} disabled={*is_processing} style="padding: 10px; cursor: pointer; background: #3e4451; color: white; border: 1px solid #5c6370;">
                                                             { format!("{}. {}", i + 1, option) }
                                                         </button>
                                                     }
@@ -131,7 +138,7 @@ fn app() -> Html {
                                 <h2>{ "커뮤니티 게시판" }</h2>
                                 <p style="color: #abb2bf;">{ "(DB 연결 후 실시간 채팅/게시글이 표시될 공간입니다)" }</p>
                                 <div style="border: 1px dashed #5c6370; padding: 40px; margin-top: 20px;">
-                                    { "현재 준비 중... 아치 리눅스 유저라면 환영입니다!" }
+                                    { "현재 준비 중... 에너지 절약에 관심있는 모든 분들을 환영합니다!" }
                                 </div>
                             </div>
                         },

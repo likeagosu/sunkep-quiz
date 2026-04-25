@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="utf-8" />
-        <title>Sunkep Quiz</title>
-        
+<head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sun-Kep Community</title>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://fonts.cdnfonts.com/css/gmarket-sans" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* 기본 폰트를 Pretendard로 설정 */
+            font-family: 'Pretendard Variable', Pretendard, sans-serif;
+            background-color: #282c34;
+        }
+
+        .sun-kep-title {
+            font-family: 'GmarketSansBold', sans-serif;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #61afef;
+            margin-bottom: 10px;
+        }
+
+        .sun-kep-desc {
+            font-family: 'Pretendard Variable', Pretendard, sans-serif;
+            font-weight: 400;
+            color: #abb2bf;
+        }
+    </style>
+
+    
 <script type="module">
-import init, * as bindings from '/sunkep-quiz/sunkep-quiz-e041f9b9171d529e.js';
-const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-e041f9b9171d529e_bg.wasm' });
+import init, * as bindings from '/sunkep-quiz/sunkep-quiz-4dc4dcc362463293.js';
+const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-4dc4dcc362463293_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -15,6 +45,7 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-    <link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-e041f9b9171d529e.js" crossorigin="anonymous" integrity="sha384-Aa5toXCxADc9eYpja4ZCyARje6F1mzjAUEUyO8fKeM5kcoWh+zj0/ppiwjj6JvKw"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-e041f9b9171d529e_bg.wasm" crossorigin="anonymous" integrity="sha384-NVDDXyZBLR2a5lMztLaDM0CFgqSOJM5JlD8DSu8CSlp05cuVFhfx48YyyfMsDWx2" as="fetch" type="application/wasm"></head>
-    <body></body>
+<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-4dc4dcc362463293.js" crossorigin="anonymous" integrity="sha384-Aa5toXCxADc9eYpja4ZCyARje6F1mzjAUEUyO8fKeM5kcoWh+zj0/ppiwjj6JvKw"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-4dc4dcc362463293_bg.wasm" crossorigin="anonymous" integrity="sha384-nhwFxyv6IyJmMkhgD1QFLvqC3rQsHrWhDNI1oiyMMYyGlh/Z5VbboliZQakh4yPm" as="fetch" type="application/wasm"></head>
+<body>
+    </body>
 </html>
