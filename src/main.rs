@@ -1,3 +1,4 @@
+use gloo_timers::callback::Timeout;
 use yew::prelude::*;
 
 // 퀴즈 데이터 구조체
@@ -56,7 +57,12 @@ fn app() -> Html {
                                                 message.set(format!{"오답입니다.. 정답은 {}번 입니다.", correct_answer+1}.to_string());
                                             }
 
-                                            current_idx.set(*current_idx + 1);
+                                            let m_handle = message.clone();
+                                            let c_handle = current_idx.clone();
+                                            gloo_timers::callback::Timeout::new(2000, move || {
+                                                m_handle.set("".to_string());    // 메시지 지우기
+                                                c_handle.set(*c_handle + 1);    // 다음 문제로 넘기기
+                                            }).forget();
                                         });
                                         html! {
                                             <button onclick={on_click} style="padding: 10px; cursor: pointer; background: #3e4451; color: white; border: 1px solid #5c6370;">
@@ -65,6 +71,17 @@ fn app() -> Html {
                                         }
                                     }).collect::<Html>()
                                 }
+                            </div>
+                            <div style="
+                                margin-top: 30px;
+                                padding: 15px;
+                                text-align: center;
+                                font-size: 1.2rem;
+                                font-weight: bold;
+                                color: #dabe71; /* 눈에 띄는 노란색 계열 */
+                                min-height: 3em; /* 메시지가 없을 때도 자리를 차지하게 해서 화면 덜컹거림 방지 */
+                                ">
+                                { (*message).clone() }
                             </div>
                         </div>
                     }
