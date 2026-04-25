@@ -64,8 +64,9 @@ fn app() -> Html {
                     match *current_scene {
                         Scene::Home => html! {
                             <div style="text-align: center; margin-top: 50px;">
-                                <h1>{ "Jeongwoo's Workspace" }</h1>
-                                <p>{ "Rust와 아치 리눅스를 사랑하는 개발자의 공간입니다." }</p>
+                                <h1>{ "Sun-Kep community" }</h1>
+                                <p>{ "귀찮음을 넘는 단 한 번의 행동" }</p>
+                                <img src="./sunkep.png"/>
                             </div>
                         },
                         Scene::Quiz => {
