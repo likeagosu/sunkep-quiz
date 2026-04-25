@@ -58,3 +58,7 @@ fn app() -> Html {
         </div>
     }
 }
+
+fn main() {
+    yew::Renderer::<App>::new().render();
+}
