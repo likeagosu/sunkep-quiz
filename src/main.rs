@@ -64,9 +64,9 @@ fn app() -> Html {
                     match *current_scene {
                         Scene::Home => html! {
                             <div style="text-align: center; margin-top: 50px;">
-                                <h1>{ "Sun-Kep community" }</h1>
-                                <p>{ "귀찮음을 넘는 단 한 번의 행동" }</p>
-                                <img src="./sunkep.png"/>
+                                <h1 class="sun-kep-title">{ "Sun-Kep community" }</h1>
+                                <p class="sun-kep-desc">{ "귀찮음을 넘는 단 한 번의 행동" }</p>
+                                <img src="sunkep.png"/>
                             </div>
                         },
                         Scene::Quiz => {
