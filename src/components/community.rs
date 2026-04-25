@@ -91,7 +91,6 @@ pub fn community() -> Html {
             <div style="display: flex; flex-direction: column; gap: 15px;">
                 { for (*posts).iter().rev().map(|post| html! {
                     <div style="background: #21252b; border-left: 4px solid #98c379; padding: 15px; border-radius: 4px;">
-                        <p style="margin: 0; font-size: 0.8rem; color: #abb2bf;">{ &post.author }</p>
                         <p style="margin-top: 5px; color: #dcdfe4;">{ &post.content }</p>
                     </div>
                 }) }
