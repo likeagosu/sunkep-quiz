@@ -1,64 +1,60 @@
 use yew::prelude::*;
 
+// 퀴즈 데이터 구조체
+struct QuizItem {
+    question: String,
+    options: Vec<String>,
+    answer_idx: usize,
+}
+
 #[function_component(App)]
 fn app() -> Html {
-    // 현재 화면이 '홈'인지 '퀴즈'인지 상태를 관리합니다.
-    let is_started = use_state(|| false);
+    // 1. 퀴즈 데이터 벡터 생성
+    let quiz_data = vec![
+        QuizItem {
+            question: "Rust에서 불변 변수를 선언하는 키워드는?".to_string(),
+            options: vec!["let".into(), "let mut".into(), "const".into()],
+            answer_idx: 0,
+        },
+        QuizItem {
+            question: "아치 리눅스의 기본 패키지 관리자는?".to_string(),
+            options: vec!["apt".into(), "pacman".into(), "dnf".into()],
+            answer_idx: 1,
+        },
+    ];
 
-    let on_start_click = {
-        let is_started = is_started.clone();
-        Callback::from(move |_| is_started.set(true))
-    };
+    // 현재 문제 번호 상태 (0부터 시작)
+    let current_idx = use_state(|| 0);
 
     html! {
-        <div style="
-            background-color: #282c34; 
-            color: white; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center;
-            font-family: 'Courier New', Courier, monospace;
-        ">
-            if !*is_started {
-                // --- 첫 화면 (Home) ---
-                <div style="text-align: center; border: 4px solid #61afef; padding: 40px; background: #21252b;">
-                    <h1 style="font-size: 3rem; margin-bottom: 20px; color: #e06c75;">{ "Sunkep Quiz" }</h1>
-                    <p style="margin-bottom: 30px; color: #98c379;">{ "아치 리눅스 유저를 위한 Rust 퀴즈 에디션" }</p>
+        <div style="background-color: #282c34; color: white; min-height: 100vh; padding: 20px;">
+            <h1 style="text-align: center;">{ "Jeongwoo's Rust Quiz" }</h1>
 
-                    <button
-                        onclick={on_start_click}
-                        style="
-                            padding: 15px 30px; 
-                            font-size: 1.2rem; 
-                            background-color: #61afef; 
-                            color: #282c34; 
-                            border: none; 
-                            cursor: pointer;
-                            font-weight: bold;
-                        ">
-                        { "퀴즈 시작하기" }
-                    </button>
-                </div>
-            } else {
-                // --- 퀴즈 화면 (나중에 여기에 문제를 넣을 거예요) ---
-                <div style="text-align: center;">
-                    <h2>{ "문제 1: Rust의 소유권 규칙 중 틀린 것은?" }</h2>
-                    <button style="display: block; margin: 10px auto; padding: 10px 20px;">{ "1. 한 값의 소유자는 하나뿐이다." }</button>
-                    <button style="display: block; margin: 10px auto; padding: 10px 20px;">{ "2. 소유자가 스코프를 벗어나면 값은 버려진다." }</button>
+            {
+                // 현재 번호에 해당하는 문제 가져오기
+                if let Some(item) = quiz_data.get(*current_idx) {
+                    html! {
+                        <div style="max-width: 500px; margin: 0 auto; border: 2px solid #61afef; padding: 20px;">
+                            <h3>{ format!("Q{}. {}", *current_idx + 1, item.question) }</h3>
 
-                    <button
-                        onclick={move |_| is_started.set(false)}
-                        style="margin-top: 50px; background: none; color: #e06c75; border: 1px solid #e06c75; cursor: pointer;">
-                        { "처음으로 돌아가기" }
-                    </button>
-                </div>
+                            // 2. 벡터(options)를 반복문(iter)으로 돌려서 버튼 생성
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                {
+                                    item.options.iter().enumerate().map(|(i, option)| {
+                                        html! {
+                                            <button style="padding: 10px; cursor: pointer; background: #3e4451; color: white; border: 1px solid #5c6370;">
+                                                { format!("{}. {}", i + 1, option) }
+                                            </button>
+                                        }
+                                    }).collect::<Html>()
+                                }
+                            </div>
+                        </div>
+                    }
+                } else {
+                    html! { <h2 style="text-align: center;">{ "모든 문제를 풀었습니다!" }</h2> }
+                }
             }
         </div>
     }
-}
-
-fn main() {
-    yew::Renderer::<App>::new().render();
 }
