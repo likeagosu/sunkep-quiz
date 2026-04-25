@@ -44,15 +44,16 @@ fn app() -> Html {
                                     item.options.iter().enumerate().map(|(i, option)| {
                                         let current_idx = current_idx.clone();
                                         let score = score.clone();
+                                        let message = message.clone();
 
-                                        let current_answer = item.answer_idx;
+                                        let correct_answer = item.answer_idx;
 
                                         let on_click = Callback::from(move |_| {
-                                            if current_answer == i {
+                                            if correct_answer == i {
                                                 score.set(*score + 10);
                                                 message.set("정답입니다! +10".to_string());
                                             } else {
-                                                message.set(format!{"오답입니다.. 정답은 {}번 입니다.", i+1}.to_string());
+                                                message.set(format!{"오답입니다.. 정답은 {}번 입니다.", correct_answer+1}.to_string());
                                             }
 
                                             current_idx.set(*current_idx + 1);
