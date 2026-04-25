@@ -68,7 +68,7 @@ fn app() -> Html {
                         </div>
                     }
                 } else {
-                    html! { <h2 style="text-align: center;">{ format!("모든 문제를 풀었습니다! 점수는 {}점 입니다!", score) }</h2> }
+                    html! { <h2 style="text-align: center;">{ format!("모든 문제를 풀었습니다! 점수는 {}점 입니다!", *score) }</h2> }
                 }
             }
         </div>
