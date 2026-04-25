@@ -11,7 +11,7 @@ pub fn home() -> Html {
                 { "귀찮음을 넘는 단 한 번의 행동" }
             </p>
             <div style="margin-top: 30px;">
-                <img src="sunkep.png" alt="Sun-Kep Logo" style="max-width: 200px;" />
+                <img src="sunkep.png" alt="Sun-Kep Logo" style="max-width: 500px;" />
             </div>
         </div>
     }
