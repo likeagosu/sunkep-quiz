@@ -19,10 +19,7 @@ async fn fetch_posts() -> Vec<Post> {
 }
 
 async fn save_post(content: String) {
-    let post = Post {
-        content,
-        author: "Jeongwoo".into(),
-    };
+    let post = Post { content };
     let _ = Request::post(SUPABASE_URL)
         .header("apikey", ANON_KEY)
         .header("Authorization", &format!("Bearer {}", ANON_KEY))

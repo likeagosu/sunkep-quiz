@@ -16,7 +16,7 @@ fn app() -> Html {
 
     html! {
         <div style="background-color: #282c34; color: white; min-height: 100vh;">
-            <nav style="display: flex; gap: 20px; padding: 20px; background: #21252b;">
+            <nav style="background: none; color: white; border: none; cursor: pointer;">
                 <button onclick={go_scene(Scene::Home)}>{ "🏠 Home" }</button>
                 <button onclick={go_scene(Scene::Quiz)}>{ "📝 Quiz" }</button>
                 <button onclick={go_scene(Scene::Community)}>{ "💬 Community" }</button>

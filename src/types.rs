@@ -10,7 +10,6 @@ pub enum Scene {
 #[derive(Clone, PartialEq, Serialize, Deserialize, Debug)]
 pub struct Post {
     pub content: String,
-    pub author: String,
 }
 
 #[derive(Clone, PartialEq, Deserialize, Debug)]
