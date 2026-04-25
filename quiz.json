@@ -1,0 +1,12 @@
+[
+    {
+        "question": "Rust에서 불변 변수를 선언하는 키워드는?",
+        "options": ["let", "let mut", "const"],
+        "answer_idx": 0
+    },
+    {
+        "question": "아치 리눅스의 기본 패키지 관리자는?",
+        "options": ["apt", "pacman", "dnf"],
+        "answer_idx": 1
+    }
+]
