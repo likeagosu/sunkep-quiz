@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>Sunkep Quiz</title>
+        
+<script type="module">
+import init, * as bindings from '/sunkep-quiz/sunkep-quiz-b22d9cf2c98285c1.js';
+const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-b22d9cf2c98285c1_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-b22d9cf2c98285c1.js" crossorigin="anonymous" integrity="sha384-8pce7BFYZWKfjwVNV98SEN2hfzTP2VxGOAgzU1YT9lXNNk9P3A97exaqsJ41+yws"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-b22d9cf2c98285c1_bg.wasm" crossorigin="anonymous" integrity="sha384-gUhhp+QxJQ7iyIeP2KRof7Wn8+v0lj9WEyIcsDomhI4QQ+RSuVgo57RbR+Zag2jB" as="fetch" type="application/wasm"></head>
+    <body></body>
+</html>
