@@ -9,6 +9,10 @@ struct QuizItem {
 
 #[function_component(App)]
 fn app() -> Html {
+    let current_idx = use_state(|| 0);
+    let score = use_state(|| 0);
+    let message = use_state(|| "".to_string());
+
     // 1. 퀴즈 데이터 벡터 생성
     let quiz_data = vec![
         QuizItem {
@@ -23,12 +27,9 @@ fn app() -> Html {
         },
     ];
 
-    // 현재 문제 번호 상태 (0부터 시작)
-    let current_idx = use_state(|| 0);
-
     html! {
         <div style="background-color: #282c34; color: white; min-height: 100vh; padding: 20px;">
-            <h1 style="text-align: center;">{ "Jeongwoo's Rust Quiz" }</h1>
+            <h1 style="text-align: center;">{ "SunKep 에너지 절약 퀴즈" }</h1>
 
             {
                 // 현재 번호에 해당하는 문제 가져오기
@@ -41,8 +42,23 @@ fn app() -> Html {
                             <div style="display: flex; flex-direction: column; gap: 10px;">
                                 {
                                     item.options.iter().enumerate().map(|(i, option)| {
+                                        let current_idx = current_idx.clone();
+                                        let score = score.clone();
+
+                                        let current_answer = item.answer_idx;
+
+                                        let on_click = Callback::from(move |_| {
+                                            if current_answer == i {
+                                                score.set(*score + 10);
+                                                message.set("정답입니다! +10".to_string());
+                                            } else {
+                                                message.set(format!{"오답입니다.. 정답은 {}번 입니다.", i+1}.to_string());
+                                            }
+
+                                            current_idx.set(*current_idx + 1);
+                                        });
                                         html! {
-                                            <button style="padding: 10px; cursor: pointer; background: #3e4451; color: white; border: 1px solid #5c6370;">
+                                            <button onclick={on_click} style="padding: 10px; cursor: pointer; background: #3e4451; color: white; border: 1px solid #5c6370;">
                                                 { format!("{}. {}", i + 1, option) }
                                             </button>
                                         }
@@ -52,7 +68,7 @@ fn app() -> Html {
                         </div>
                     }
                 } else {
-                    html! { <h2 style="text-align: center;">{ "모든 문제를 풀었습니다!" }</h2> }
+                    html! { <h2 style="text-align: center;">{ format!("모든 문제를 풀었습니다! 점수는 {}점 입니다!", score) }</h2> }
                 }
             }
         </div>
