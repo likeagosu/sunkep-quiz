@@ -1,4 +1,5 @@
 use gloo_timers::callback::Timeout;
+use serde_json;
 use yew::prelude::*;
 
 #[derive(Clone, Copy, PartialEq)]
@@ -8,10 +9,28 @@ enum Scene {
     Community,
 }
 
-struct QuizItem {
-    question: String,
-    options: Vec<String>,
-    answer_idx: usize,
+#[derive(Clone, PartialEq, serde::Deserialize, Debug)]
+pub struct QuizItem {
+    pub question: String,
+    pub options: Vec<String>,
+    pub answer_idx: usize,
+}
+
+// 별도의 모듈이나 함수로 퀴즈 데이터를 반환하게 만듭니다.
+fn get_quiz_data() -> Vec<QuizItem> {
+    vec![
+        QuizItem {
+            question: "Rust에서 불변 변수를 선언하는 키워드는?".into(),
+            options: vec!["let".into(), "let mut".into(), "const".into()],
+            answer_idx: 0,
+        },
+        QuizItem {
+            question: "아치 리눅스의 기본 패키지 관리자는?".into(),
+            options: vec!["apt".into(), "pacman".into(), "dnf".into()],
+            answer_idx: 1,
+        },
+        // 여기에 문제를 계속 추가해도 main 코드는 깔끔하게 유지됩니다.
+    ]
 }
 
 #[function_component(App)]
@@ -23,19 +42,8 @@ fn app() -> Html {
     let message = use_state(|| "".to_string());
     let is_processing = use_state(|| false);
 
-    // 2. 퀴즈 데이터 정의 (html! 매크로 밖에서 수행)
-    let quiz_data = vec![
-        QuizItem {
-            question: "Rust에서 불변 변수를 선언하는 키워드는?".to_string(),
-            options: vec!["let".into(), "let mut".into(), "const".into()],
-            answer_idx: 0,
-        },
-        QuizItem {
-            question: "아치 리눅스의 기본 패키지 관리자는?".to_string(),
-            options: vec!["apt".into(), "pacman".into(), "dnf".into()],
-            answer_idx: 1,
-        },
-    ];
+    let raw_data = include_str!("../quiz.json");
+    let quiz_data: Vec<QuizItem> = serde_json::from_str(raw_data).unwrap();
 
     // 3. 네비게이션 콜백
     let go_home = {

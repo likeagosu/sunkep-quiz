@@ -633,6 +633,8 @@ name = "sunkep-quiz"
 version = "0.1.0"
 dependencies = [
  "gloo-timers 0.4.0",
+ "serde",
+ "serde_json",
  "yew",
 ]
 
