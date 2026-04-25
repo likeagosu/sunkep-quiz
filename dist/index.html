@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sun-Kep Community</title>
@@ -35,8 +36,8 @@
 
     
 <script type="module">
-import init, * as bindings from '/sunkep-quiz/sunkep-quiz-205da027f66ad471.js';
-const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-205da027f66ad471_bg.wasm' });
+import init, * as bindings from '/sunkep-quiz/sunkep-quiz-4b109379d076526d.js';
+const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-4b109379d076526d_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -45,7 +46,7 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-205da027f66ad471.js" crossorigin="anonymous" integrity="sha384-xrynmeGBueIC1y+YtME9+IAJtk9kOAsKwR9WzsO6AwZI2VjBCwy3DS++4vRX4ky9"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-205da027f66ad471_bg.wasm" crossorigin="anonymous" integrity="sha384-4eFTd3hB1DnxtSGJvOA7byu5NdaSvp8VWPZsXH++sm8Zk6fDzHHJr1UtatHwQ6TW" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-4b109379d076526d.js" crossorigin="anonymous" integrity="sha384-iBTCaibbTUKwRwIiNdYzYNRhuvsNC7HdbKBy+vNcrS34914bHeMfrQWUJI5DHNYJ"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-4b109379d076526d_bg.wasm" crossorigin="anonymous" integrity="sha384-aIKz+6AnFDMTiuiJR8BoV6AXcRnrgzwB+suF25y6WTQC2tIDqiuWbxEXurS0WYTD" as="fetch" type="application/wasm"></head>
 <body>
     </body>
 </html>

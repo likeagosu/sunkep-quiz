@@ -16,23 +16,6 @@ pub struct QuizItem {
     pub answer_idx: usize,
 }
 
-// 별도의 모듈이나 함수로 퀴즈 데이터를 반환하게 만듭니다.
-fn get_quiz_data() -> Vec<QuizItem> {
-    vec![
-        QuizItem {
-            question: "Rust에서 불변 변수를 선언하는 키워드는?".into(),
-            options: vec!["let".into(), "let mut".into(), "const".into()],
-            answer_idx: 0,
-        },
-        QuizItem {
-            question: "아치 리눅스의 기본 패키지 관리자는?".into(),
-            options: vec!["apt".into(), "pacman".into(), "dnf".into()],
-            answer_idx: 1,
-        },
-        // 여기에 문제를 계속 추가해도 main 코드는 깔끔하게 유지됩니다.
-    ]
-}
-
 #[function_component(App)]
 fn app() -> Html {
     // 1. 상태(State) 선언은 함수 최상단에 모읍니다.
@@ -142,11 +125,31 @@ fn app() -> Html {
                             }
                         },
                         Scene::Community => html! {
-                            <div style="text-align: center;">
-                                <h2>{ "커뮤니티 게시판" }</h2>
-                                <p style="color: #abb2bf;">{ "(DB 연결 후 실시간 채팅/게시글이 표시될 공간입니다)" }</p>
-                                <div style="border: 1px dashed #5c6370; padding: 40px; margin-top: 20px;">
-                                    { "현재 준비 중... 에너지 절약에 관심있는 모든 분들을 환영합니다!" }
+                            <div class="community-container" style="padding: 20px; max-width: 800px; margin: 0 auto;">
+                                <h2 style="font-family: 'GmarketSansBold'; color: #61afef; margin-bottom: 30px;">
+                                    { "귀찮음을 넘는 단 한 번의 행동들" }
+                                </h2>
+
+                                // 글쓰기 영역
+                                <div style="background: #282c34; border: 1px solid #3e4451; padding: 20px; border-radius: 8px; margin-bottom: 40px;">
+                                    <textarea
+                                        placeholder="오늘 당신의 작은 실천을 기록해 보세요..."
+                                        style="width: 100%; height: 100px; background: transparent; border: none; color: white; outline: none; font-family: 'Pretendard'; resize: none;"
+                                    />
+                                    <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                                        <button class="sun-kep-button" style="padding: 8px 20px; font-size: 0.9rem;">
+                                            { "기록하기" }
+                                        </button>
+                                    </div>
+                                </div>
+
+                                // 게시글 리스트 (임시)
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    <div style="background: #21252b; border-left: 4px solid #98c379; padding: 15px; border-radius: 4px;">
+                                        <p style="margin: 0; font-size: 0.9rem; color: #abb2bf;">{ "방금 전" }</p>
+                                        <p style="margin-top: 5px; color: #dcdfe4;">{ "공부하기 정말 싫었는데, 딱 10분만 앉아있기 성공했습니다! 🔥" }</p>
+                                    </div>
+                                    // ... 더 많은 카드들
                                 </div>
                             </div>
                         },
