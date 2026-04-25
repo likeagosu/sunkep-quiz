@@ -1,3 +1,3 @@
 sunkep quiz site
 
-address: https://g-osu.github.io/sunkep-quiz/
+address: https://likeagosu.github.io/sunkep-quiz/
