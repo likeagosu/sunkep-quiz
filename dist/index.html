@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    
-    
+    <base href="/sunkep-quiz/" />
     
     
     <meta charset="utf-8" />
@@ -16,7 +15,6 @@
         body {
             margin: 0;
             padding: 0;
-            /* 기본 폰트를 Pretendard로 설정 */
             font-family: 'Pretendard Variable', Pretendard, sans-serif;
             background-color: #282c34;
         }
@@ -55,8 +53,8 @@
 
     
 <script type="module">
-import init, * as bindings from '/sunkep-quiz/sunkep-quiz-da911c691bcc09db.js';
-const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-da911c691bcc09db_bg.wasm' });
+import init, * as bindings from '/sunkep-quiz/sunkep-quiz-42b0c3c20b99f331.js';
+const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-42b0c3c20b99f331_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -65,7 +63,5 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-da911c691bcc09db.js" crossorigin="anonymous" integrity="sha384-VwKKOxWeP51xIWK4f/9vu3O7l2hMyJvpN2fQDWDxx1Spd3ig8sE5HmZW0hOgSx5h"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-da911c691bcc09db_bg.wasm" crossorigin="anonymous" integrity="sha384-Nwk/c8A8qBS4s9gM/TMwx13H8hCAX7G6xgKJreba1SZMa/q10bHVS0BKO0pO+XF7" as="fetch" type="application/wasm"></head>
-<body>
-    </body>
+<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-42b0c3c20b99f331.js" crossorigin="anonymous" integrity="sha384-VwKKOxWeP51xIWK4f/9vu3O7l2hMyJvpN2fQDWDxx1Spd3ig8sE5HmZW0hOgSx5h"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-42b0c3c20b99f331_bg.wasm" crossorigin="anonymous" integrity="sha384-d8tYr7AcHZ3zYaqLD00xrBFhBhAFYYkvSj2rzB4t226cDaWVKkhTsc+phz7DQr8c" as="fetch" type="application/wasm"></head>
 </html>
