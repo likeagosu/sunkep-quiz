@@ -32,12 +32,29 @@
             font-weight: 400;
             color: #abb2bf;
         }
+
+        .sns-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #2c313a;
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: 1px solid #3e4451;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .sns-box:hover {
+            background: #3e4451;
+            border-color: #61afef;
+        }
     </style>
 
     
 <script type="module">
-import init, * as bindings from '/sunkep-quiz/sunkep-quiz-85a51a1593a70c7c.js';
-const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-85a51a1593a70c7c_bg.wasm' });
+import init, * as bindings from '/sunkep-quiz/sunkep-quiz-810356a6bbb2f49d.js';
+const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-810356a6bbb2f49d_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -46,7 +63,7 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-85a51a1593a70c7c.js" crossorigin="anonymous" integrity="sha384-VwKKOxWeP51xIWK4f/9vu3O7l2hMyJvpN2fQDWDxx1Spd3ig8sE5HmZW0hOgSx5h"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-85a51a1593a70c7c_bg.wasm" crossorigin="anonymous" integrity="sha384-xBSwzEdqQklP+FCt60MIb2OUWRkLVxh2BuvnoO/AgaPmfgxKJUR//2t/b77NdkVP" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-810356a6bbb2f49d.js" crossorigin="anonymous" integrity="sha384-VwKKOxWeP51xIWK4f/9vu3O7l2hMyJvpN2fQDWDxx1Spd3ig8sE5HmZW0hOgSx5h"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-810356a6bbb2f49d_bg.wasm" crossorigin="anonymous" integrity="sha384-Kt6QlqqttGxgW+9YKMTScUwEMkzXCucqMpu7qEhP5P/IfJUe9IRgCsi7IGsm+fzz" as="fetch" type="application/wasm"></head>
 <body>
     </body>
 </html>
