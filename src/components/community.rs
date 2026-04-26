@@ -4,7 +4,6 @@ use web_sys::HtmlTextAreaElement;
 use yew::platform::spawn_local;
 use yew::prelude::*;
 
-// --- 설정값 (정우님의 정보를 여기에 넣으세요) ---
 const SUPABASE_URL: &str = "https://kyzgtmejohhyzmbhiqmv.supabase.co/rest/v1/posts";
 const ANON_KEY: &str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5emd0bWVqb2hoeXptYmhpcW12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcxMzQ3NzEsImV4cCI6MjA5MjcxMDc3MX0.0nO70At6Yp5KkpdoHirpgOWUx7vI00oMNhnuAr4jNMM";
 
@@ -91,7 +90,7 @@ pub fn community() -> Html {
             <div style="display: flex; flex-direction: column; gap: 15px;">
                 { for (*posts).iter().rev().map(|post| html! {
                     <div style="background: #21252b; border-left: 4px solid #98c379; padding: 15px; border-radius: 4px;">
-                        <p style="margin-top: 5px; color: #dcdfe4;">{ &post.content }</p>
+                        <p style="margin-top: 5px; color: #dcdfe4; word-break: break-all; overflow-wrap: break-word;">{ &post.content }</p>
                     </div>
                 }) }
             </div>

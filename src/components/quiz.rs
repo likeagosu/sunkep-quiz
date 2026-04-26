@@ -14,10 +14,8 @@ pub fn quiz(props: &QuizProps) -> Html {
     let message = use_state(|| "".to_string());
     let is_processing = use_state(|| false);
 
-    // 수정 포인트 1: props_data -> props.data로 접근해야 합니다.
     if let Some(item) = props.data.get(*current_idx) {
         html! {
-            // 수정 포인트 2: 전체를 감싸는 최상위 태그 하나가 필요합니다.
             <div>
                 <div style="max-width: 500px; margin: 0 auto; border: 2px solid #61afef; padding: 20px;">
                     <h1 style="text-align: center;">{ "sunkep 에너지 절약 퀴즈" }</h1>
@@ -38,7 +36,7 @@ pub fn quiz(props: &QuizProps) -> Html {
                                 processing.set(true);
                                 if correct_answer == i {
                                     s.set(*s + 10);
-                                    msg.set("정답입니다! +10".to_string());
+                                    msg.set("정답입니다! +10점!".to_string());
                                 } else {
                                     msg.set(format!("오답입니다.. 정답은 {}번 입니다.", correct_answer + 1));
                                 }

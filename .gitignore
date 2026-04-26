@@ -1,9 +1,6 @@
-# Rust 관련
 /target
 
-# Trunk 빌드 결과물
 /dist
 
-# Node/gh-pages 캐시 (이게 이번 경고의 원인!)
 node_modules
 .gh-pages-cache
