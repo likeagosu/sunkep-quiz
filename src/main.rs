@@ -16,7 +16,7 @@ fn app() -> Html {
 
     html! {
         <div style="background-color: #282c34; color: white; min-height: 100vh;">
-            <nav style="display: flex; justify-content: space-between; gap: 25px; padding: 25px 40px; background: #21252b; border-bottom: 1px solid #3e4451;">
+            <nav style="display: flex; justify-content: space-between; align-items: center; padding: 25px 40px; background: #21252b; border-bottom: 1px solid #3e4451;">
                 <button onclick={go_scene(Scene::Home)}
                     style="background: none; color: #abb2bf; border: none; cursor: pointer; font-size: 1.1rem; font-family: 'GmarketSansBold'; transition: 0.3s;">
                     { "🏠 Home" }
