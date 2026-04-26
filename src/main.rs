@@ -33,14 +33,14 @@ fn app() -> Html {
                 </div>
                 <div style="display: flex; gap: 12px; align-items: center;">
                     <a href="https://www.instagram.com/sun_kep" class="sns-box" target="_blank">
-                        <img src="../assets/Instagram_icon.png" style="width: 20px; height: 20px;" />
+                        <img src="./assets/Instagram_icon.png" style="width: 20px; height: 20px;" />
                         <span style="color: #abb2bf; font-size: 0.85rem; font-family: 'Pretendard';">
                             { "공식 인스타그램" }
                         </span>
                     </a>
 
                     <a href="https://www.youtube.com/@%EC%A0%84%EB%A0%A5%EC%9D%84_%EC%95%84%EA%BB%B4%EC%9A%94" class="sns-box" target="_blank">
-                        <img src="../assets/Youtube_logo.png" style="width: 20px; height: 20px;" />
+                        <img src="./assets/Youtube_logo.png" style="width: 20px; height: 20px;" />
                         <span style="color: #abb2bf; font-size: 0.85rem; font-family: 'Pretendard';">
                             { "공식 유튜브" }
                         </span>
