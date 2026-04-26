@@ -16,7 +16,7 @@ fn app() -> Html {
 
     html! {
         <div style="background-color: #282c34; color: white; min-height: 100vh;">
-            <nav style="display: flex; gap: 25px; padding: 25px 40px; background: #21252b; border-bottom: 1px solid #3e4451;">
+            <nav style="display: flex; justify-content: space-between; gap: 25px; padding: 25px 40px; background: #21252b; border-bottom: 1px solid #3e4451;">
                 <button onclick={go_scene(Scene::Home)}
                     style="background: none; color: #abb2bf; border: none; cursor: pointer; font-size: 1.1rem; font-family: 'GmarketSansBold'; transition: 0.3s;">
                     { "🏠 Home" }
@@ -31,14 +31,14 @@ fn app() -> Html {
                 </button>
                 <div style="display: flex; gap: 12px; align-items: center;">
                     <a href="https://www.instagram.com/sun_kep" class="sns-box" target="_blank">
-                        <img src="assets/instagram_icon.png" style="width: 20px; height: 20px;" />
+                        <img src="assets/Instagram_icon.png" style="width: 20px; height: 20px;" />
                         <span style="color: #abb2bf; font-size: 0.85rem; font-family: 'Pretendard';">
                             { "공식 인스타그램" }
                         </span>
                     </a>
 
                     <a href="www.youtube.com/@전력을_아껴요" class="sns-box" target="_blank">
-                        <img src="assets/youtube_icon.png" style="width: 20px; height: 20px;" />
+                        <img src="assets/Youtube_logo.png" style="width: 20px; height: 20px;" />
                         <span style="color: #abb2bf; font-size: 0.85rem; font-family: 'Pretendard';">
                             { "공식 유튜브" }
                         </span>
