@@ -3,6 +3,8 @@
 <head>
     
     
+    
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sun-Kep Community</title>
@@ -53,8 +55,8 @@
 
     
 <script type="module">
-import init, * as bindings from '/sunkep-quiz/sunkep-quiz-a30d1f17a12176a8.js';
-const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-a30d1f17a12176a8_bg.wasm' });
+import init, * as bindings from '/sunkep-quiz/sunkep-quiz-da911c691bcc09db.js';
+const wasm = await init({ module_or_path: '/sunkep-quiz/sunkep-quiz-da911c691bcc09db_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -63,7 +65,7 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-a30d1f17a12176a8.js" crossorigin="anonymous" integrity="sha384-VwKKOxWeP51xIWK4f/9vu3O7l2hMyJvpN2fQDWDxx1Spd3ig8sE5HmZW0hOgSx5h"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-a30d1f17a12176a8_bg.wasm" crossorigin="anonymous" integrity="sha384-W9X8j1EVsPWHSfuVtvuN0NNww7TAY0TiqML+Tx9P2MNlj4PqHWmwce7RuyuhJuMr" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/sunkep-quiz/sunkep-quiz-da911c691bcc09db.js" crossorigin="anonymous" integrity="sha384-VwKKOxWeP51xIWK4f/9vu3O7l2hMyJvpN2fQDWDxx1Spd3ig8sE5HmZW0hOgSx5h"><link rel="preload" href="/sunkep-quiz/sunkep-quiz-da911c691bcc09db_bg.wasm" crossorigin="anonymous" integrity="sha384-Nwk/c8A8qBS4s9gM/TMwx13H8hCAX7G6xgKJreba1SZMa/q10bHVS0BKO0pO+XF7" as="fetch" type="application/wasm"></head>
 <body>
     </body>
 </html>
