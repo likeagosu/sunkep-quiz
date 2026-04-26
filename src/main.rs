@@ -39,7 +39,7 @@ fn app() -> Html {
                         </span>
                     </a>
 
-                    <a href="https://www.youtube.com/@전력을_아껴요" class="sns-box" target="_blank">
+                    <a href="https://www.youtube.com/@%EC%A0%84%EB%A0%A5%EC%9D%84_%EC%95%84%EA%BB%B4%EC%9A%94" class="sns-box" target="_blank">
                         <img src="../assets/Youtube_logo.png" style="width: 20px; height: 20px;" />
                         <span style="color: #abb2bf; font-size: 0.85rem; font-family: 'Pretendard';">
                             { "공식 유튜브" }
